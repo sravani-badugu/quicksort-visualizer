@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickSort Visualizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <h1>QuickSort <span>Visualizer</span></h1>
+                <p>Interactive Algorithm Learning Tool</p>
+            </div>
+            
+            <div class="controls-panel glass-panel">
+                <div class="button-group">
+                    <button id="generate-btn" class="btn primary">Generate Random (10)</button>
+                    <button id="start-btn" class="btn success">Start Sorting</button>
+                    <button id="pause-btn" class="btn warning" disabled>Pause</button>
+                    <button id="resume-btn" class="btn success" disabled style="display: none;">Resume</button>
+                    <button id="reset-btn" class="btn danger" disabled>Reset</button>
+                </div>
+                
+                <div class="custom-input-group">
+                    <input type="text" id="custom-array-input" placeholder="Custom Array (e.g. 42, 15, 8, 99)">
+                    <button id="load-custom-btn" class="btn primary">Load Custom</button>
+                </div>
+                
+                <div class="speed-control">
+                    <label for="speed-slider">Sorting Speed: <span id="speed-display">Fast</span></label>
+                    <input type="range" id="speed-slider" min="10" max="1000" value="50" dir="rtl">
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="visualization-container glass-panel">
+                <div id="array-container" class="array-container"></div>
+                
+                <div class="legend">
+                    <div class="legend-item"><span class="color-box default"></span> Default</div>
+                    <div class="legend-item"><span class="color-box comparing"></span> Comparing</div>
+                    <div class="legend-item"><span class="color-box pivot"></span> Pivot</div>
+                    <div class="legend-item"><span class="color-box swapping"></span> Swapping</div>
+                    <div class="legend-item"><span class="color-box sorted"></span> Sorted</div>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="stats-panel glass-panel">
+                    <h2>Statistics</h2>
+                    <div class="stat-item">
+                        <span class="stat-label">Comparisons</span>
+                        <span id="comparisons-count" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Swaps</span>
+                        <span id="swaps-count" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Execution Time</span>
+                        <span id="execution-time" class="stat-value">0.00s</span>
+                    </div>
+                </div>
+
+                <div class="explanation-panel glass-panel">
+                    <h2>Algorithm Details</h2>
+                    
+                    <div class="complexity">
+                        <div class="complexity-item">
+                            <span class="complexity-label">Time Complexity</span>
+                            <span class="complexity-value code">O(N log N)</span>
+                        </div>
+                        <div class="complexity-item">
+                            <span class="complexity-label">Space Complexity</span>
+                            <span class="complexity-value code">O(log N)</span>
+                        </div>
+                    </div>
+
+                    <div class="action-log-container">
+                        <h3>Action Log (Dry Run)</h3>
+                        <div id="action-log" class="action-log">
+                            <p>Ready to sort. Press "Start Sorting" to begin.</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
